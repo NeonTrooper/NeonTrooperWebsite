@@ -1,0 +1,21 @@
+.introduction{
+    color: white;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 80px;
+}
+
+.icons img{
+    width: 30px;
+    transition: transform 0.2s;
+}
+
+.icons img:hover{
+    transform: scale(1.2);
+}

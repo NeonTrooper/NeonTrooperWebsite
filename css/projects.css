@@ -1,0 +1,30 @@
+.projects-container{
+    background-color: rgb(19, 19, 19);
+    padding-top: 30px;
+}
+
+.grid-template{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 200px;
+    justify-content: center;
+    background-color: rgb(19, 19, 19);
+    padding-bottom: 50px;
+}
+
+.project{
+    color: white;
+    padding: 20px;
+    border: 1px solid rgb(26, 217, 196);
+    border-radius: 5px;
+    transition: transform 0.15s;
+    background-color: rgb(38, 38, 38);
+    width: 300px;
+}
+
+.project:hover{
+    background-color: rgb(26, 217, 196);
+    color: black;
+    cursor: pointer;
+    transform: scale(1.2);
+}

@@ -1,0 +1,55 @@
+.about-container{
+    background-color: rgb(38, 38, 38);
+    padding: 60px 80px;
+    color: white;
+}
+
+.about-container button{
+    font-size: 20px;
+}
+
+.about-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.profile-image{
+    border-radius: 50%;
+    width: 400px;
+}
+
+.web-skills-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 10px;
+}
+
+.web-skills{
+    border: 1px solid rgb(26, 217, 196);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s;
+}
+.web-skills:hover{
+    background-color: rgb(26, 217, 196);
+    color: black;
+    cursor: pointer;
+    transform: scale(1.2);
+    border-color: black;
+}
+
+.circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.wide{
+    width: 300px;
+    height: 80px;
+    border-radius: 9999px;
+}

@@ -1,0 +1,44 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: rgb(6, 6, 6);
+    color: white;
+}
+
+.header-left-side{
+    font-family: "Press Start 2P";
+    font-size: 20px;
+}
+
+.header-right-side{
+    display: flex;
+    gap: 20px;
+}
+
+.header-right-side a{
+    color: white;
+    text-decoration: none;
+    display:flex;
+    align-items: center;
+    transition: transform 0.15s;
+}
+
+.header-right-side a:hover{
+    color: rgb(26, 217, 196);
+    transform: scale(1.2);
+}
+
+.resume-button{
+    border: none;
+    border-radius: 10px;
+    padding:10px;
+    background-color: rgb(26, 217, 196);
+    font-weight: bold;
+    font-size: 15px;
+}
+.resume-button:hover{
+    background-color: rgb(23, 184, 165);
+    cursor: pointer;
+}

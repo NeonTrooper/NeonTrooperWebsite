@@ -1,0 +1,31 @@
+body{
+    background-color: rgb(6, 6, 6);
+    margin: 0;
+}
+
+.emphasize{
+    color: rgb(26, 217, 196);
+    font-weight: bold;
+}
+
+.category{
+    font-size: 12px;
+    color: gray;
+}
+
+.description{
+    font-family: "Audiowide";
+    font-size: 40px;
+}
+
+@keyframes scalePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

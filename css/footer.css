@@ -1,0 +1,57 @@
+.footer-container{
+    background-color: rgb(38, 38, 38);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid white;
+}
+
+.footer-left-side h2{
+    font-family: "Press Start 2P";
+    color: rgb(26, 217, 196);
+    padding: 50px 100px;
+}
+
+.footer-right-side{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    text-align: center;
+    margin: 50px 0;
+    color: white;
+}
+
+.footer-middle-nav{
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+.footer-middle-nav a{
+    text-decoration: none;
+    color: white;
+    transition: color 0.15s;
+}
+.footer-middle-nav a:hover{
+    color: rgb(26, 217, 196);
+}
+
+.footer-social-icons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-social-icons img{
+    width: 30px;
+    transition: transform 0.2s;
+}
+
+.footer-social-icons img:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.under-footer-container{
+    background-color: rgb(38, 38, 38);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
