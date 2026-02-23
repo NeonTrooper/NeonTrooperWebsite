@@ -1,6 +1,7 @@
 body{
     background-color: rgb(6, 6, 6);
     margin: 0;
+    overflow-x: hidden;
 }
 
 .emphasize{
