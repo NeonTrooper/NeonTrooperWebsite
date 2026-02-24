@@ -31,12 +31,15 @@ header{
 }
 
 .resume-button{
+    display: inline-block;
     border: none;
     border-radius: 10px;
     padding:10px;
     background-color: rgb(26, 217, 196);
     font-weight: bold;
     font-size: 15px;
+    text-decoration: none;
+    color: black;
 }
 .resume-button:hover{
     background-color: rgb(23, 184, 165);
