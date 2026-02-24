@@ -43,5 +43,7 @@ header{
 }
 .resume-button:hover{
     background-color: rgb(23, 184, 165);
+    color: black;
+    transform: none;
     cursor: pointer;
 }
