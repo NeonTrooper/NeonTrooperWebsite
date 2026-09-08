@@ -1,185 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/introduction.css">
-    <link rel="stylesheet" href="css/projects.css">
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Konstantinos Lyveras · Portfolio Boy</title>
+  <meta name="description" content="Konstantinos Lyveras, software developer. Portfolio as a playable Game Boy-style handheld, in English and Greek.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Pixel fonts from Google Fonts.
+       Press Start 2P = the chunky "Game Boy" headings (has Greek letters too)
+       VT323          = the readable body text for English
+       Tiny5          = the readable body text for Greek (VT323 has no Greek letters) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Tiny5&display=swap">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="header-left-side">
-            <h2 style="color: rgb(26, 217, 196);">K.L.</h2>
-        </div>
-        
-        <div class="header-right-side">
-            <a href="#home">Home</a>
-            <a href="#portofolio">Featured Projects</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact me</a>
-            <a href="assets/resume.pdf" target="_blank" class="resume-button">View Resume</a>
-            
-        </div>
-    </header>
-    <main class="introduction" id="home">
-        <div class="introduction-text">
-            <h1>Hi, I'm <span class="emphasize">Konstantinos Lyveras</span></h1>
-            <p>A passionate Software and Web Developer<br>who has a strong interest in creating efficient and user-friendly applications.</p>
-        </div>
-        <div class="icons">
-            <a href="https://www.instagram.com/konstantinos_lyveras" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
-            </a>
+  <!--
+    PAGE STRUCTURE
+    ==============
+    .stage   centres everything and gives the 3D perspective
+    .rig     the 3D box that gets rotated when you drag it
+               .console (front face) = the Game Boy you interact with
+               .face.back/left/right/top/bottom = the other five sides of the box
+    #screen  the 320x288 "LCD" panel. Everything you see on the screen is
+             drawn into this div by js/app.js.
+    .legend  the small help text under the console
+  -->
+  <div class="stage">
+    <div class="rig" id="rig" aria-label="3D handheld console, drag to rotate">
 
-            <a href="https://www.linkedin.com/in/konstantinos-lyveras-231a96329/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
-            </a>
+    <!-- FRONT FACE: the console itself -->
+    <div class="console face front" aria-label="Handheld console showing Konstantinos Lyveras's portfolio">
 
-            <a href="https://github.com/NeonTrooper" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
-            </a>
-        </div>
+      <!-- The dark frame around the screen -->
+      <div class="bezel">
+        <div class="stripes"></div>
+        <div class="bezel-text">DOT MATRIX WITH STEREO SOUND</div>
+        <div class="led"><i></i>BATTERY</div>
 
-            <h2 class="category">SERVICES</h2>
-            <p class="description">What <span class="emphasize">I do</span>.</p>
-        
-        <div class="projects-container">   
-            <div class="grid-template">
-            <div class="project">
-                <h2>Web Development</h2>
-                <p>I design and develop responsive, modern websites using HTML, CSS, JavaScript, and backend technologies. 
-        My focus is on clean code, performance, and usability, ensuring websites are functional, scalable, and 
-        tailored to real user needs.</p>
-            </div>    
-            <div class="project">
-                <h2>UI Design</h2>
-                <p>I create clean and intuitive user interfaces with an emphasis on clarity, consistency, and user experience. 
-        By combining thoughtful layouts, visual hierarchy, and accessibility principles, I design interfaces that 
-        are easy to use and visually balanced.</p>
-            </div>  
-            <div class="project">
-                <h2>Software Development</h2>
-                <p> I develop software applications using languages such as C#, C++, Java, and Python, focusing on reliability 
-        and maintainable architecture. From small tools to larger systems, I aim to solve practical problems through 
-        efficient and well-structured code.</p>
-            </div>  
-        </div>
-        
-        
-            <h2 class="category" id="portofolio">PORTOFOLIO</h2>
-                <p class="description">Featured <span class="emphasize">projects</span>.</p>
-            <div class="grid-template">
-            <div class="project">
-                <h2>Lamda Development</h2>
-                <p>Created a User Management System and Database for Lamda Development.</p>
-            </div>  
-        </div>
+        <!-- The green screen. #screen is filled by JavaScript. -->
+        <div class="lcd"><div id="screen" role="application" aria-live="polite"></div></div>
+      </div>
+
+      <!-- Printed logo under the screen -->
+      <div class="brand">Konstantinos Lyveras<span>PORTFOLIO BOY</span></div>
+
+      <!-- Physical buttons. Every button has a data-btn value; app.js listens
+           for clicks/taps on anything with class "btn" and reads that value. -->
+      <div class="dpad" aria-label="Directional pad">
+        <div class="k up btn" data-btn="up" role="button" tabindex="0" aria-label="Up"></div>
+        <div class="k down btn" data-btn="down" role="button" tabindex="0" aria-label="Down"></div>
+        <div class="k left btn" data-btn="left" role="button" tabindex="0" aria-label="Left"></div>
+        <div class="k right btn" data-btn="right" role="button" tabindex="0" aria-label="Right"></div>
+        <div class="c"></div>
+      </div>
+
+      <div class="ab">
+        <div class="round b btn" data-btn="b" role="button" tabindex="0" aria-label="B button"></div>
+        <div class="round a btn" data-btn="a" role="button" tabindex="0" aria-label="A button"></div>
+        <span class="lab b">B</span><span class="lab a">A</span>
+      </div>
+
+      <div class="ss">
+        <div class="pill btn" data-btn="select" role="button" tabindex="0" aria-label="Select"><div class="cap"></div><span class="lab">SELECT</span></div>
+        <div class="pill btn" data-btn="start" role="button" tabindex="0" aria-label="Start"><div class="cap"></div><span class="lab">START</span></div>
+      </div>
+
+      <!-- Speaker grille (decoration only) -->
+      <div class="speaker"><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
 
-           
-        <div class="about-container">
-        <h2 class="category">MY BIO</h2>
-        <p class="description" id="about">About <span class="emphasize">me</span>.</p>
-
-        <div class="about-section">
-            <div class="image-container">
-                <img class="profile-image" src="images/profile-picture.jpeg" alt="profile-picture"/>
-            </div>
-
-            <div>
-                <p style="font-size: 20px;">I am an IT and Software Development professional with hands-on experience in IT support, Microsoft 365 administration, and custom application development. I work daily with user support, hardware and software troubleshooting, Active Directory, and corporate IT environments, while continuously developing my skills in programming and system administration. I have a strong technical background combined with solid communication and teamwork skills, and I’m motivated to grow further in IT operations, system administration, or software engineering roles.</p>
-                <a href="assets/resume.pdf" target="_blank" class="resume-button">View Resume</a>
-            </div>
-
-            <div class="technical-skills-container">
-                <h2 class="category">SKILLS</h2>
-                <p class="description">Technical <span class="emphasize">skills</span>.</p>
-                <p style="font-size: 20px;">Knowledge in multiple programming languages including C, C++, C#, Java, Python, HTML, CSS, JavaScript, SQL, and PHP, with experience in building small-to-medium applications and automation tools. Strong knowledge of Microsoft 365, Active Directory, Windows 10/11, and IT service management processes. Familiar with networking fundamentals (CCNA), cybersecurity principles, Power Platform, and database concepts, with hands-on experience supporting enterprise environments and troubleshooting both hardware and software systems.</p>
-            </div>
-
-            <div class="web-skills-grid">
-                <p class="web-skills circle">HTML</p>
-                <p class="web-skills wide">JAVASCRIPT</p>
-                <p class="web-skills circle">CSS</p>
-                <p class="web-skills wide">UI DESIGN</p>
-                <p class="web-skills circle">C</p>
-                <p class="web-skills wide">C++</p>
-                <p class="web-skills circle">C#</p>
-                <p class="web-skills wide">JAVA</p>
-            </div>
-        </div>
+    <!-- THE OTHER FIVE FACES OF THE BOX (decoration only, seen when you rotate it) -->
+    <div class="face back" aria-hidden="true">
+      <div class="screws"><i></i><i></i><i></i><i></i></div>
+      <div class="plate">
+        <div class="model">PORTFOLIO BOY</div>
+        <div class="fine">MODEL NO. KL-2019 · SOFTWARE DEVELOPER EDITION<br>DESIGNED IN CHAIDARI, ATTIKI · SERIAL 2026-0908<br>RUNS ON HTML · CSS · JAVASCRIPT</div>
+      </div>
+      <div class="battery"><span>◀ OPEN</span><div class="ridges"></div></div>
     </div>
+    <div class="face side left" aria-hidden="true"><i class="ext"></i><i class="dial"></i><b>CONTRAST</b></div>
+    <div class="face side right" aria-hidden="true"><i class="dial"></i><b>VOLUME</b></div>
+    <div class="face side top" aria-hidden="true"><i class="sw"></i><i class="slot"></i></div>
+    <div class="face side bottom" aria-hidden="true"><i class="jack"></i><b>PHONES</b></div>
 
-        
-        
-        <div class="contact-container">
-            <h2 class="category">GET IN TOUCH</h2>
-            <p class="description" id="contact">Contact <span class="emphasize">me</span>.</p>
-            <p style="font-size: 20px;">Feel free to reach out for collaboration, job opportunities, or professional inquiries.<br>You can contact me via email or connect with me on LinkedIn and GitHub. I’m always open to discussing new projects, technical challenges, and career opportunities.</p>
-        <address>
-                <h2>Have a project idea?</h2>
-                <p><span class="emphasize">Let's Discuss!</span></p>
-                <p>+30 6949580200</p>
-                <p>kostaslyveras@gmail.com</p>
-                <p>Chaidari, Attiki</p>
-        </address>
-    </div>
-</main>
+    </div><!-- /.rig -->
 
-    <footer class="footer-container">
-    <div class="footer-left-side">
-        <h2>K.L.</h2>
-    </div>
+    <!-- Soft shadow on the "floor" under the console -->
+    <div class="floor-shadow" aria-hidden="true"></div>
 
-    <div class="footer-right-side">
-        <div>
-            <p>Web Developer</p>
-            <p>Front End Developer</p>
-            <p>Software Developer</p>
-        </div>
+    <!-- Help text. Filled by app.js so it can switch language. -->
+    <p class="legend" id="legend"></p>
+  </div>
 
-        <div class="footer-middle-nav">
-            <a href="#home"><p>Home</p></a>
-            <a href="#portofolio"><p>My projects</p></a>
-            <a href="#about"><p>About me</p></a>
-            <a href="#contact"><p>Contact me</p></a>
-        </div>
-
-        <div>
-            <p>Social media handles</p>
-            <div class="footer-social-icons">
-                <a href="https://www.instagram.com/konstantinos_lyveras" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
-                </a>
-                
-                <a href="https://www.linkedin.com/in/konstantinos-lyveras-231a96329/" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
-                </a>
-
-                <a href="https://github.com/NeonTrooper" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
-                </a>
-            </div>
-        </div>
-    </div>
-</footer>
-    <div class="under-footer-container">
-            <p>Developed by <span class="emphasize">me</span>.</p>
-        </div>
+  <!-- Order matters: data.js defines the content (window.PB),
+       app.js reads it and runs the whole thing. -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
 </body>
-
 </html>
-
