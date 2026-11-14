@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help Desk Tickets</title>
+  <meta name="description" content="A small help desk ticket tracker with SLA timers, built with plain HTML, CSS and JavaScript.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Help Desk Tickets</h1>
+      <p>Log incidents, work them by priority and keep an eye on the SLA. Data stays in this browser.</p>
+    </div>
+    <dl class="stats">
+      <div><dt>Open</dt><dd id="stat-open">0</dd></div>
+      <div><dt>In progress</dt><dd id="stat-progress">0</dd></div>
+      <div class="warn"><dt>Overdue</dt><dd id="stat-overdue">0</dd></div>
+      <div><dt>SLA met</dt><dd id="stat-sla">–</dd></div>
+    </dl>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="new-h">
+      <h2 id="new-h">New ticket</h2>
+      <form id="form" novalidate>
+        <label for="title">Title</label>
+        <input id="title" name="title" maxlength="120" placeholder="Short summary of the problem" required>
+
+        <label for="requester">Requester</label>
+        <input id="requester" name="requester" maxlength="80" placeholder="Who reported it" required>
+
+        <div class="row">
+          <div><label for="category">Category</label><select id="category" name="category"></select></div>
+          <div><label for="priority">Priority (SLA)</label><select id="priority" name="priority"></select></div>
+        </div>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" maxlength="1000" placeholder="Details, error messages, what was tried"></textarea>
+
+        <p id="errors" class="errors" role="alert"></p>
+        <button type="submit" class="primary">Create ticket</button>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="list-h">
+      <div class="list-head">
+        <h2 id="list-h">Queue <small id="count"></small></h2>
+        <div class="tools">
+          <button type="button" id="sample">Load sample data</button>
+          <button type="button" id="export">Export CSV</button>
+        </div>
+      </div>
+      <div class="filters">
+        <input id="f-query" type="search" placeholder="Search tickets" aria-label="Search tickets">
+        <select id="f-status" aria-label="Filter by status"></select>
+        <select id="f-priority" aria-label="Filter by priority"></select>
+      </div>
+      <ul id="list" class="tickets"></ul>
+      <p id="empty" class="empty"></p>
+    </section>
+  </main>
+
+  <footer class="foot">Built by Konstantinos Lyveras · HTML, CSS, JavaScript · <a href="https://www.konstantinoslyveras.gr/">konstantinoslyveras.gr</a></footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

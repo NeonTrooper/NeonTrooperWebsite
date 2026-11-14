@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Konstantinos Lyveras | Software Developer Portfolio</title>
+  <meta name="author" content="Konstantinos Lyveras">
+  <meta name="description" content="Konstantinos Lyveras is a software developer in Chaidari, Attiki, focused on web development, JavaScript, PHP, SQL, Python, C#, Java and IT operations.">
+  <meta name="theme-color" content="#1f6b63">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.konstantinoslyveras.gr/retro/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Konstantinos Lyveras · Software Developer">
+  <meta property="og:description" content="Software developer portfolio covering web development, software engineering and IT operations.">
+  <meta property="og:url" content="https://konstantinoslyveras.gr/">
+  <meta property="og:site_name" content="Konstantinos Lyveras Portfolio">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="el_GR">
+  <meta property="profile:first_name" content="Konstantinos">
+  <meta property="profile:last_name" content="Lyveras">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Konstantinos Lyveras · Software Developer">
+  <meta name="twitter:description" content="Software developer portfolio covering web development, software engineering and IT operations.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://konstantinoslyveras.gr/#profile",
+        "url": "https://konstantinoslyveras.gr/",
+        "name": "Konstantinos Lyveras | Software Developer Portfolio",
+        "inLanguage": ["en", "el"],
+        "isPartOf": {"@id": "https://konstantinoslyveras.gr/#website"},
+        "about": {"@id": "https://konstantinoslyveras.gr/#person"}
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://konstantinoslyveras.gr/#website",
+        "url": "https://konstantinoslyveras.gr/",
+        "name": "Konstantinos Lyveras Portfolio",
+        "inLanguage": ["en", "el"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://konstantinoslyveras.gr/#person",
+        "name": "Konstantinos Lyveras",
+        "url": "https://konstantinoslyveras.gr/",
+        "image": "https://konstantinoslyveras.gr/assets/portrait-56.png",
+        "jobTitle": "Software Developer",
+        "description": "Software developer with front-end and back-end experience, plus IT support and Microsoft 365 administration experience.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chaidari",
+          "addressRegion": "Attiki",
+          "addressCountry": "GR"
+        },
+        "knowsAbout": ["Web development", "JavaScript", "HTML", "CSS", "PHP", "SQL", "Python", "C#", "Java", "Microsoft 365", "IT operations"],
+        "sameAs": [
+          "https://www.linkedin.com/in/konstantinos-lyveras-231a96329/",
+          "https://github.com/NeonTrooper",
+          "https://www.instagram.com/konstantinos_lyveras"
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Pixel fonts from Google Fonts.
+       Press Start 2P = the chunky "Game Boy" headings (has Greek letters too)
+       VT323          = the readable body text for English
+       Tiny5          = the readable body text for Greek (VT323 has no Greek letters) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Tiny5&display=swap">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!--
+    PAGE STRUCTURE
+    ==============
+    .stage   centres everything and gives the 3D perspective
+    .rig     the 3D box that gets rotated when you drag it
+               .console (front face) = the Game Boy you interact with
+               .face.back/left/right/top/bottom = the other five sides of the box
+    #screen  the 320x288 "LCD" panel. Everything you see on the screen is
+             drawn into this div by js/app.js.
+    .legend  the small help text under the console
+  -->
+  <div class="stage">
+    <div class="rig" id="rig" aria-label="3D handheld console, drag to rotate">
+
+    <!-- FRONT FACE: the console itself -->
+    <div class="console face front" aria-label="Handheld console showing Konstantinos Lyveras's portfolio">
+
+      <!-- The dark frame around the screen -->
+      <div class="bezel">
+        <div class="stripes"></div>
+        <div class="bezel-text">DOT MATRIX WITH STEREO SOUND</div>
+        <div class="led"><i></i>BATTERY</div>
+
+        <!-- The green screen. #screen is filled by JavaScript. -->
+        <div class="lcd"><div id="screen" role="application" aria-live="polite"></div></div>
+      </div>
+
+      <!-- Printed logo under the screen -->
+      <div class="brand">Konstantinos Lyveras<span>PORTFOLIO BOY</span></div>
+
+      <!-- Physical buttons. Every button has a data-btn value; app.js listens
+           for clicks/taps on anything with class "btn" and reads that value. -->
+      <div class="dpad" aria-label="Directional pad">
+        <div class="k up btn" data-btn="up" role="button" tabindex="0" aria-label="Up"></div>
+        <div class="k down btn" data-btn="down" role="button" tabindex="0" aria-label="Down"></div>
+        <div class="k left btn" data-btn="left" role="button" tabindex="0" aria-label="Left"></div>
+        <div class="k right btn" data-btn="right" role="button" tabindex="0" aria-label="Right"></div>
+        <div class="c"></div>
+      </div>
+
+      <div class="ab">
+        <div class="round b btn" data-btn="b" role="button" tabindex="0" aria-label="B button"></div>
+        <div class="round a btn" data-btn="a" role="button" tabindex="0" aria-label="A button"></div>
+        <span class="lab b">B</span><span class="lab a">A</span>
+      </div>
+
+      <div class="ss">
+        <div class="pill btn" data-btn="select" role="button" tabindex="0" aria-label="Select"><div class="cap"></div><span class="lab">SELECT</span></div>
+        <div class="pill btn" data-btn="start" role="button" tabindex="0" aria-label="Start"><div class="cap"></div><span class="lab">START</span></div>
+      </div>
+
+      <!-- Speaker grille (decoration only) -->
+      <div class="speaker"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+
+    <!-- THE OTHER FIVE FACES OF THE BOX (decoration only, seen when you rotate it) -->
+    <div class="face back" aria-hidden="true">
+      <div class="screws"><i></i><i></i><i></i><i></i></div>
+      <div class="plate">
+        <div class="model">PORTFOLIO BOY</div>
+        <div class="fine">MODEL NO. KL-2019 · SOFTWARE DEVELOPER EDITION<br>DESIGNED IN CHAIDARI, ATTIKI · SERIAL 2026-0908<br>RUNS ON HTML · CSS · JAVASCRIPT</div>
+      </div>
+      <div class="battery"><span>◀ OPEN</span><div class="ridges"></div></div>
+    </div>
+    <div class="face side left" aria-hidden="true"><i class="ext"></i><i class="dial"></i><b>CONTRAST</b></div>
+    <div class="face side right" aria-hidden="true"><i class="dial"></i><b>VOLUME</b></div>
+    <div class="face side top" aria-hidden="true"><i class="sw"></i><i class="slot"></i></div>
+    <div class="face side bottom" aria-hidden="true"><i class="jack"></i><b>PHONES</b></div>
+
+    </div><!-- /.rig -->
+
+    <!-- Soft shadow on the "floor" under the console -->
+    <div class="floor-shadow" aria-hidden="true"></div>
+
+    <!-- Help text. Filled by app.js so it can switch language. -->
+    <p class="legend" id="legend"></p>
+
+    <!-- Search-friendly fallback for crawlers and visitors without JavaScript. -->
+    <noscript>
+      <article class="seo-content">
+        <h1>Konstantinos Lyveras · Software Developer</h1>
+        <p>Software developer in Chaidari, Attiki, Greece, focused on front-end and back-end development, web applications and IT operations.</p>
+
+        <h2>Professional experience</h2>
+        <p>Service Delivery Associate at Lamda Development (April 2025–present). Previous experience includes IT Support Technician at Media Time, Electronics and Automation Technician in the Hellenic Navy, IT Technician at Public, and Computer and Network Technician at OTE.</p>
+
+        <h2>Skills</h2>
+        <p>HTML5, CSS, JavaScript, PHP, SQL, Python, C#, Java, C++, Android, Microsoft 365, Active Directory, Windows, iOS, Power Platform, networking and ITIL service desk operations.</p>
+
+        <h2>Projects</h2>
+        <p>Projects include a user management system, Python password manager, C++ Battleship and card games, a C# ping-pong game, a traffic-light state machine and an Android salary calculator.</p>
+
+        <h2>Education and contact</h2>
+        <p>Software Development and Applications diploma from IEK Omiros and Computer Technician diploma from DIEK Chaidari.</p>
+        <p><a href="mailto:kostaslyveras@gmail.com">Email Konstantinos Lyveras</a> · <a href="assets/resume.pdf">Download résumé</a> · <a href="https://www.linkedin.com/in/konstantinos-lyveras-231a96329/">LinkedIn</a> · <a href="https://github.com/NeonTrooper">GitHub</a></p>
+      </article>
+    </noscript>
+  </div>
+
+  <!-- Order matters: data.js defines the content (window.PB),
+       app.js reads it and runs the whole thing. -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://konstantinoslyveras.gr/sitemap.xml
+Sitemap: https://www.konstantinoslyveras.gr/sitemap.xml
