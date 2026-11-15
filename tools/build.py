@@ -363,7 +363,7 @@ def render(lang):
     </div>
   </div>
   <aside class="side">
-    <img class="portrait" src="{pre}assets/portrait.jpg" width="120" height="120" alt="{t(UI["photo_alt"])}">
+    <img class="portrait" src="{pre}assets/portrait.jpg" width="160" height="160" alt="{t(UI["photo_alt"])}">
     <dl class="facts">{facts}</dl>
   </aside>
 </div></section>

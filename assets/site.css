@@ -134,7 +134,7 @@ ul { padding: 0; list-style: none; }
 .facts dd { font-weight: 500; line-height: 1.45; }
 .facts dd small { display: block; font-weight: 400; font-size: .9rem; color: var(--muted); }
 
-.portrait { display: block; width: 120px; height: 120px; border-radius: 16px; object-fit: cover; border: 1px solid var(--line); margin-bottom: 20px; }
+.portrait { display: block; width: 160px; height: 160px; border-radius: 16px; object-fit: cover; border: 1px solid var(--line); margin-bottom: 20px; }
 
 /* ---------- sections ---------- */
 .section { padding: clamp(44px, 7vw, 80px) 0; border-top: 1px solid var(--line); }
