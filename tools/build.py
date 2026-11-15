@@ -355,7 +355,6 @@ def render(lang):
     <p class="eyebrow">{t(HERO["eyebrow"])}</p>
     <h1>{t(NAME)}</h1>
     <p class="lead">{t(HERO["lead"])}</p>
-    <p class="lead">{t(HERO["lead2"])}</p>
     <div class="cta">
       <a class="btn primary" href="mailto:{EMAIL}">{ICON_MAIL}{t(UI["email_me"])}</a>
       <a class="btn" href="{cv}" download="{cv_name}">{ICON_DOWN}{t(UI["cv"])}</a>
