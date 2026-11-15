@@ -199,8 +199,8 @@ LANGUAGES = {"en": ["Greek (native)", "English (proficient)"],
 
 # Summary used at the top of the CV PDFs.
 CV_SUMMARY = {
-    "en": "IT and software development professional with experience in IT support, Microsoft 365 administration and custom application development. Skilled in C, C++, C#, Java, Python, HTML, CSS, JavaScript, SQL, PHP and Power Apps, with a solid grounding in networking. Strong problem-solving, teamwork and adaptability skills. Seeking opportunities in software development (front end or back end), web development or IT operations.",
-    "el": "Επαγγελματίας IT και ανάπτυξης λογισμικού, με εμπειρία στην υποστήριξη IT, στη διαχείριση Microsoft 365 και στην ανάπτυξη προσαρμοσμένων εφαρμογών. Γνώσεις C, C++, C#, Java, Python, HTML, CSS, JavaScript, SQL, PHP και Power Apps, με στέρεες βάσεις στα δίκτυα. Ικανότητα επίλυσης προβλημάτων, ομαδικότητα και προσαρμοστικότητα. Αναζητώ θέση στην ανάπτυξη λογισμικού (front end ή back end), στο web development ή στα IT operations."}
+    "en": "IT and software development professional with experience in IT support, Microsoft 365 administration and custom application development. Skilled in C, C++, C#, Java, Python, HTML, CSS, JavaScript, SQL, PHP and Power Apps, with a solid grounding in networking. Strong problem-solving, teamwork and adaptability skills.",
+    "el": "Επαγγελματίας IT και ανάπτυξης λογισμικού, με εμπειρία στην υποστήριξη IT, στη διαχείριση Microsoft 365 και στην ανάπτυξη προσαρμοσμένων εφαρμογών. Γνώσεις C, C++, C#, Java, Python, HTML, CSS, JavaScript, SQL, PHP και Power Apps, με στέρεες βάσεις στα δίκτυα. Ικανότητα επίλυσης προβλημάτων, ομαδικότητα και προσαρμοστικότητα."}
 
 UI = {
     "skip": {"en": "Skip to content", "el": "Μετάβαση στο περιεχόμενο"},
